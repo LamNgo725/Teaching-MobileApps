@@ -9,9 +9,9 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: global::Android.Runtime.ResourceDesignerAttribute("Camera_app.Resource", IsApplication=true)]
+[assembly: global::Android.Runtime.ResourceDesignerAttribute("App2.Resource", IsApplication=true)]
 
-namespace Camera_app
+namespace App2
 {
 	
 	
@@ -44,11 +44,17 @@ namespace Camera_app
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f050001
-			public const int PictureTaken = 2131034113;
+			// aapt resource value: 0x7f040003
+			public const int gridLayout1 = 2130968579;
 			
-			// aapt resource value: 0x7f050000
-			public const int button1 = 2131034112;
+			// aapt resource value: 0x7f040000
+			public const int launchCameraButton = 2130968576;
+			
+			// aapt resource value: 0x7f040001
+			public const int takenPictureImageView = 2130968577;
+			
+			// aapt resource value: 0x7f040002
+			public const int textView1 = 2130968578;
 			
 			static Id()
 			{
@@ -63,8 +69,8 @@ namespace Camera_app
 		public partial class Layout
 		{
 			
-			// aapt resource value: 0x7f030000
-			public const int Main = 2130903040;
+			// aapt resource value: 0x7f020000
+			public const int Main = 2130837504;
 			
 			static Layout()
 			{
@@ -76,30 +82,11 @@ namespace Camera_app
 			}
 		}
 		
-		public partial class Mipmap
-		{
-			
-			// aapt resource value: 0x7f020000
-			public const int Icon = 2130837504;
-			
-			static Mipmap()
-			{
-				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
-			}
-			
-			private Mipmap()
-			{
-			}
-		}
-		
 		public partial class String
 		{
 			
-			// aapt resource value: 0x7f040001
-			public const int app_name = 2130968577;
-			
-			// aapt resource value: 0x7f040000
-			public const int hello = 2130968576;
+			// aapt resource value: 0x7f030000
+			public const int app_name = 2130903040;
 			
 			static String()
 			{
