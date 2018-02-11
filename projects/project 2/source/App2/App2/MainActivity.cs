@@ -5,6 +5,7 @@ using Android.Content;
 using System.Collections.Generic;
 using Android.Content.PM;
 using Android.Provider;
+using System;
 
 namespace App2
 {
@@ -28,11 +29,25 @@ namespace App2
             // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.Main);
 
+            StrictMode.VmPolicy.Builder builder = new StrictMode.VmPolicy.Builder();
+            StrictMode.SetVmPolicy(builder.Build());
+
+
+            /*StrictMode.VmPolicy.Builder builder = new StrictMode.VmPolicy.Builder();
+            StrictMode.setVmPolicy(builder.build());*/
+
             if (IsThereAnAppToTakePictures() == true)
             {
                 CreateDirectoryForPictures();
                 FindViewById<Button>(Resource.Id.launchCameraButton).Click += TakePicture;
             }
+
+            FindViewById<Button>(Resource.Id.negatered).Click += _clicked;
+            FindViewById<Button>(Resource.Id.negategreen).Click += _clicked;
+            FindViewById<Button>(Resource.Id.negateblue).Click += _clicked;
+            FindViewById<Button>(Resource.Id.redscale).Click += _clicked;
+            FindViewById<Button>(Resource.Id.bluescale).Click += _clicked;
+            FindViewById<Button>(Resource.Id.greyscale).Click += _clicked;
         }
 
         /// <summary>
@@ -72,7 +87,7 @@ namespace App2
             //FileProvider.GetUriForFile
 
             //The line is a problem line for Android 7+ development
-            //intent.PutExtra(MediaStore.ExtraOutput, Android.Net.Uri.FromFile(_file));
+            intent.PutExtra(MediaStore.ExtraOutput, Android.Net.Uri.FromFile(_file));
             StartActivityForResult(intent, 0);
         }
 
@@ -87,12 +102,13 @@ namespace App2
             base.OnActivityResult(requestCode, resultCode, data);
 
             //Make image available in the gallery
-            /*
+
             Intent mediaScanIntent = new Intent(Intent.ActionMediaScannerScanFile);
             var contentUri = Android.Net.Uri.FromFile(_file);
+            //Uri uri = contentUri.Data;
             mediaScanIntent.SetData(contentUri);
             SendBroadcast(mediaScanIntent);
-            */
+            
 
             // Display in ImageView. We will resize the bitmap to fit the display.
             // Loading the full sized image will consume too much memory
@@ -103,11 +119,13 @@ namespace App2
 
             //AC: workaround for not passing actual files
             Android.Graphics.Bitmap bitmap = (Android.Graphics.Bitmap)data.Extras.Get("data");
-            Android.Graphics.Bitmap copyBitmap =
-                bitmap.Copy(Android.Graphics.Bitmap.Config.Argb8888, true);
+            Android.Graphics.Bitmap copyBitmap =bitmap.Copy(Android.Graphics.Bitmap.Config.Argb8888, true);
+
+
+            //Android.Graphics.Bitmap bitmap = _file.Path.LoadAndResizeBitmap(width, height);
 
             //this code removes all red from a picture
-            for (int i = 0; i < bitmap.Width; i++)
+            /*for (int i = 0; i < bitmap.Width; i++)
             {
                 for (int j = 0; j < bitmap.Height; j++)
                 {
@@ -116,20 +134,50 @@ namespace App2
                     c.R = 0;
                     copyBitmap.SetPixel(i, j, c);
                 }
-            }
-            if (copyBitmap != null)
+            }*/
+            if (bitmap != null)
             {
+                /*Android.Graphics.Bitmap copyBitmap = bitmap.Copy(Android.Graphics.Bitmap.Config.Argb8888, true);
+                Android.Graphics.Bitmap OGBitmap = copyBitmap;*/
                 imageView.SetImageBitmap(copyBitmap);
                 imageView.Visibility = Android.Views.ViewStates.Visible;
                 bitmap = null;
                 copyBitmap = null;
+
+
+                //allows user to see the hidden buttons for effects now
+                Button negRed = FindViewById<Button>(Resource.Id.negatered);
+                Button negGre = FindViewById<Button>(Resource.Id.negategreen);
+                Button negBlu = FindViewById<Button>(Resource.Id.negateblue);
+                Button redsca = FindViewById<Button>(Resource.Id.redscale);
+                Button blusca = FindViewById<Button>(Resource.Id.bluescale);
+                Button grasca = FindViewById<Button>(Resource.Id.greyscale);
+
+                negRed.Visibility = Android.Views.ViewStates.Visible;
+                negGre.Visibility = Android.Views.ViewStates.Visible;
+                negBlu.Visibility = Android.Views.ViewStates.Visible;
+                redsca.Visibility = Android.Views.ViewStates.Visible;
+                blusca.Visibility = Android.Views.ViewStates.Visible;
+                grasca.Visibility = Android.Views.ViewStates.Visible;
+
             }
 
             // Dispose of the Java side bitmap.
             System.GC.Collect();
         }
 
-
+        private void _clicked(object sender, System.EventArgs e)
+        {
+            Button clicked_ = sender as Button;
+            string clicked = clicked_.Id.ToString();
+            string _display = clicked_.Id.ToString();
+            if (clicked == null)
+            {
+                return;
+            }
+            var display_text = FindViewById<TextView>(Resource.Id.textView1);
+            display_text.Text = _display;
+        }
 
 
     }

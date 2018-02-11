@@ -21,11 +21,42 @@
         android:layout_height="wrap_content"
         android:id="@+id/textView1" />
     <GridLayout
-        android:visibility="invisible"
-        android:minWidth="25px"
-        android:minHeight="25px"
-        android:layout_width="match_parent"
-        android:layout_height="87.0dp"
+        android:layout_width="wrap_content"
+        android:layout_height="252.5dp"
+        android:rowCount="2"
+        android:columnCount="4"
         android:id="@+id/gridLayout1"
-        android:layout_marginBottom="0.0dp" />
+        android:layout_gravity="center"
+        android:layout_marginBottom="0.0dp">
+        <Button
+            android:text="Negate Reds"
+            android:id="@+id/negatered"
+            android:textSize="10dp"
+            android:visibility="gone" />
+        <Button
+            android:text="Negate Green"
+            android:id="@+id/negategreen"
+            android:textSize="10dp"
+            android:visibility="gone" />
+        <Button
+            android:text="Negate Blue"
+            android:id="@+id/negateblue"
+            android:textSize="10dp"
+            android:visibility="gone" />
+        <Button
+            android:text="GreyScale"
+            android:id="@+id/greyscale"
+            android:textSize="10dp"
+            android:visibility="gone" />
+        <Button
+            android:text="RedScale"
+            android:id="@+id/redscale"
+            android:textSize="10dp"
+            android:visibility="gone" />
+        <Button
+            android:text="BlueScale"
+            android:id="@+id/bluescale"
+            android:textSize="10dp" 
+            android:visibility="gone"/>
+    </GridLayout>
 </LinearLayout>

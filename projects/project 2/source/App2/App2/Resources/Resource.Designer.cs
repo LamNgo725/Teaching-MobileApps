@@ -44,11 +44,29 @@ namespace App2
 		public partial class Id
 		{
 			
+			// aapt resource value: 0x7f040009
+			public const int bluescale = 2130968585;
+			
+			// aapt resource value: 0x7f040007
+			public const int greyscale = 2130968583;
+			
 			// aapt resource value: 0x7f040003
 			public const int gridLayout1 = 2130968579;
 			
 			// aapt resource value: 0x7f040000
 			public const int launchCameraButton = 2130968576;
+			
+			// aapt resource value: 0x7f040006
+			public const int negateblue = 2130968582;
+			
+			// aapt resource value: 0x7f040005
+			public const int negategreen = 2130968581;
+			
+			// aapt resource value: 0x7f040004
+			public const int negatered = 2130968580;
+			
+			// aapt resource value: 0x7f040008
+			public const int redscale = 2130968584;
 			
 			// aapt resource value: 0x7f040001
 			public const int takenPictureImageView = 2130968577;
