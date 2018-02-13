@@ -31,32 +31,42 @@
         <Button
             android:text="Negate Reds"
             android:id="@+id/negatered"
-            android:textSize="10dp"
-            android:visibility="gone" />
+            android:textSize="10dp" 
+            android:visibility="gone"/>
         <Button
             android:text="Negate Green"
             android:id="@+id/negategreen"
             android:textSize="10dp"
-            android:visibility="gone" />
+            android:visibility="gone"/>
         <Button
             android:text="Negate Blue"
             android:id="@+id/negateblue"
-            android:textSize="10dp"
-            android:visibility="gone" />
+            android:textSize="10dp" 
+            android:visibility="gone"/>
         <Button
             android:text="GreyScale"
             android:id="@+id/greyscale"
-            android:textSize="10dp"
-            android:visibility="gone" />
-        <Button
-            android:text="RedScale"
-            android:id="@+id/redscale"
-            android:textSize="10dp"
-            android:visibility="gone" />
-        <Button
-            android:text="BlueScale"
-            android:id="@+id/bluescale"
             android:textSize="10dp" 
+            android:visibility="gone"/>
+        <Button
+            android:text="High Contrast"
+            android:id="@+id/highcontrast"
+            android:textSize="10dp"
+            android:visibility="gone"/>
+        <Button
+            android:text="Remove Green"
+            android:id="@+id/removegreen"
+            android:textSize="10dp" 
+            android:visibility="gone"/>
+        <Button
+            android:text="Remove Red"
+            android:id="@+id/removered"
+            android:textSize="10dp" 
+            android:visibility="gone"/>
+        <Button
+            android:text="Remove Blue"
+            android:id="@+id/removeblue"
+            android:textSize="10dp"
             android:visibility="gone"/>
     </GridLayout>
 </LinearLayout>

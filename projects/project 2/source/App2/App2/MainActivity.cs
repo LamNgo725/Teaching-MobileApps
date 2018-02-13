@@ -29,8 +29,8 @@ namespace App2
             // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.Main);
 
-            StrictMode.VmPolicy.Builder builder = new StrictMode.VmPolicy.Builder();
-            StrictMode.SetVmPolicy(builder.Build());
+            //StrictMode.VmPolicy.Builder builder = new StrictMode.VmPolicy.Builder();
+            //StrictMode.SetVmPolicy(builder.Build());
 
 
             /*StrictMode.VmPolicy.Builder builder = new StrictMode.VmPolicy.Builder();
@@ -42,12 +42,7 @@ namespace App2
                 FindViewById<Button>(Resource.Id.launchCameraButton).Click += TakePicture;
             }
 
-            FindViewById<Button>(Resource.Id.negatered).Click += _clicked;
-            FindViewById<Button>(Resource.Id.negategreen).Click += _clicked;
-            FindViewById<Button>(Resource.Id.negateblue).Click += _clicked;
-            FindViewById<Button>(Resource.Id.redscale).Click += _clicked;
-            FindViewById<Button>(Resource.Id.bluescale).Click += _clicked;
-            FindViewById<Button>(Resource.Id.greyscale).Click += _clicked;
+ 
         }
 
         /// <summary>
@@ -87,7 +82,7 @@ namespace App2
             //FileProvider.GetUriForFile
 
             //The line is a problem line for Android 7+ development
-            intent.PutExtra(MediaStore.ExtraOutput, Android.Net.Uri.FromFile(_file));
+            //intent.PutExtra(MediaStore.ExtraOutput, Android.Net.Uri.FromFile(_file));
             StartActivityForResult(intent, 0);
         }
 
@@ -108,7 +103,7 @@ namespace App2
             //Uri uri = contentUri.Data;
             mediaScanIntent.SetData(contentUri);
             SendBroadcast(mediaScanIntent);
-            
+
 
             // Display in ImageView. We will resize the bitmap to fit the display.
             // Loading the full sized image will consume too much memory
@@ -119,7 +114,6 @@ namespace App2
 
             //AC: workaround for not passing actual files
             Android.Graphics.Bitmap bitmap = (Android.Graphics.Bitmap)data.Extras.Get("data");
-            Android.Graphics.Bitmap copyBitmap =bitmap.Copy(Android.Graphics.Bitmap.Config.Argb8888, true);
 
 
             //Android.Graphics.Bitmap bitmap = _file.Path.LoadAndResizeBitmap(width, height);
@@ -139,47 +133,193 @@ namespace App2
             {
                 /*Android.Graphics.Bitmap copyBitmap = bitmap.Copy(Android.Graphics.Bitmap.Config.Argb8888, true);
                 Android.Graphics.Bitmap OGBitmap = copyBitmap;*/
+                Android.Graphics.Bitmap copyBitmap = bitmap.Copy(Android.Graphics.Bitmap.Config.Argb8888, true);
                 imageView.SetImageBitmap(copyBitmap);
                 imageView.Visibility = Android.Views.ViewStates.Visible;
-                bitmap = null;
-                copyBitmap = null;
+            
 
-
+             
+            
                 //allows user to see the hidden buttons for effects now
                 Button negRed = FindViewById<Button>(Resource.Id.negatered);
                 Button negGre = FindViewById<Button>(Resource.Id.negategreen);
                 Button negBlu = FindViewById<Button>(Resource.Id.negateblue);
-                Button redsca = FindViewById<Button>(Resource.Id.redscale);
-                Button blusca = FindViewById<Button>(Resource.Id.bluescale);
-                Button grasca = FindViewById<Button>(Resource.Id.greyscale);
+                Button remGre = FindViewById<Button>(Resource.Id.removegreen);
+                Button highCon = FindViewById<Button>(Resource.Id.highcontrast);
+                Button graSca = FindViewById<Button>(Resource.Id.greyscale);
+                Button remRed = FindViewById<Button>(Resource.Id.removered);
+                Button remBlu = FindViewById<Button>(Resource.Id.removeblue);
 
                 negRed.Visibility = Android.Views.ViewStates.Visible;
                 negGre.Visibility = Android.Views.ViewStates.Visible;
                 negBlu.Visibility = Android.Views.ViewStates.Visible;
-                redsca.Visibility = Android.Views.ViewStates.Visible;
-                blusca.Visibility = Android.Views.ViewStates.Visible;
-                grasca.Visibility = Android.Views.ViewStates.Visible;
+                remGre.Visibility = Android.Views.ViewStates.Visible;
+                highCon.Visibility = Android.Views.ViewStates.Visible;
+                graSca.Visibility = Android.Views.ViewStates.Visible;
+                remRed.Visibility = Android.Views.ViewStates.Visible;
+                remBlu.Visibility = Android.Views.ViewStates.Visible;
 
+                //Negate red effect
+                negRed.Click += delegate
+                {
+                    for (int i = 0; i < bitmap.Width; i++)
+                    {
+                        for (int j = 0; j < bitmap.Height; j++)
+                        {
+                            int p = bitmap.GetPixel(i, j);
+                            Android.Graphics.Color c = new Android.Graphics.Color(p);
+                            c.R = (byte)(255 - c.R);
+                            copyBitmap.SetPixel(i, j, c);
+                            imageView.SetImageBitmap(copyBitmap);
+                        }
+                    }
+                };
+
+                //Negate green effect
+                negGre.Click += delegate
+                {
+                    for (int i = 0; i < bitmap.Width; i++)
+                    {
+                        for (int j = 0; j < bitmap.Height; j++)
+                        {
+                            int p = bitmap.GetPixel(i, j);
+                            Android.Graphics.Color c = new Android.Graphics.Color(p);
+                            c.G = (byte)(255 - c.G);
+                            copyBitmap.SetPixel(i, j, c);
+                            imageView.SetImageBitmap(copyBitmap);
+                        }
+                    }
+                };
+
+                //Negate blue effect
+                negBlu.Click += delegate
+                {
+                    for (int i = 0; i < bitmap.Width; i++)
+                    {
+                        for (int j = 0; j < bitmap.Height; j++)
+                        {
+                            int p = bitmap.GetPixel(i, j);
+                            Android.Graphics.Color c = new Android.Graphics.Color(p);
+                            c.B = (byte)(255 - c.B);
+                            copyBitmap.SetPixel(i, j, c);
+                            imageView.SetImageBitmap(copyBitmap);
+                        }
+                    }
+                };
+
+                //Grayscale effect
+                graSca.Click += delegate
+                {
+                    for (int i = 0; i < bitmap.Width; i++)
+                    {
+                        for (int j = 0; j < bitmap.Height; j++)
+                        {
+                            int p = bitmap.GetPixel(i, j);
+                            Android.Graphics.Color c = new Android.Graphics.Color(p);
+                            int r = c.R;
+                            int b = c.B;
+                            int g = c.G;
+                            c.R = (byte)((r+b+g)/3);
+                            c.B = (byte)((r + b + g) / 3);
+                            c.G = (byte)((r + b + g) / 3);
+                            copyBitmap.SetPixel(i, j, c);
+                            imageView.SetImageBitmap(copyBitmap);
+                        }
+                    }
+                };
+
+                //Remove Red effect
+                remRed.Click += delegate
+                {
+                    for (int i = 0; i < bitmap.Width; i++)
+                    {
+                        for (int j = 0; j < bitmap.Height; j++)
+                        {
+                            int p = bitmap.GetPixel(i, j);
+                            Android.Graphics.Color c = new Android.Graphics.Color(p);
+                            c.R = 0;
+                            copyBitmap.SetPixel(i, j, c);
+                            imageView.SetImageBitmap(copyBitmap);
+                        }
+                    }
+                };
+
+                //Remove Blue effect
+                remBlu.Click += delegate
+                {
+                    for (int i = 0; i < bitmap.Width; i++)
+                    {
+                        for (int j = 0; j < bitmap.Height; j++)
+                        {
+                            int p = bitmap.GetPixel(i, j);
+                            Android.Graphics.Color c = new Android.Graphics.Color(p);
+                            c.B = 0;
+                            copyBitmap.SetPixel(i, j, c);
+                            imageView.SetImageBitmap(copyBitmap);
+                        }
+                    }
+                };
+
+                //Remove Green effect
+                remGre.Click += delegate
+                {
+                    for (int i = 0; i < bitmap.Width; i++)
+                    {
+                        for (int j = 0; j < bitmap.Height; j++)
+                        {
+                            int p = bitmap.GetPixel(i, j);
+                            Android.Graphics.Color c = new Android.Graphics.Color(p);
+                            c.G = 0;
+                            copyBitmap.SetPixel(i, j, c);
+                            imageView.SetImageBitmap(copyBitmap);
+                        }
+                    }
+                };
+
+                //High Contrast effect
+                highCon.Click += delegate
+                {
+                    for (int i = 0; i < bitmap.Width; i++)
+                    {
+                        for (int j = 0; j < bitmap.Height; j++)
+                        {
+                            int p = bitmap.GetPixel(i, j);
+                            Android.Graphics.Color c = new Android.Graphics.Color(p);
+                            if (c.R > 177)
+                            {
+                                c.R = 255;
+                            }
+                            else
+                            {
+                                c.R = 0;
+                            }
+                            if (c.G > 177)
+                            {
+                                c.G = 255;
+                            }
+                            else
+                            {
+                                c.G = 0;
+                            }
+                            if (c.B > 177)
+                            {
+                                c.B = 255;
+                            }
+                            else
+                            {
+                                c.B = 0;
+                            }
+                            copyBitmap.SetPixel(i, j, c);
+                            imageView.SetImageBitmap(copyBitmap);
+                        }
+                    }
+                };
             }
-
             // Dispose of the Java side bitmap.
             System.GC.Collect();
         }
 
-        private void _clicked(object sender, System.EventArgs e)
-        {
-            Button clicked_ = sender as Button;
-            string clicked = clicked_.Id.ToString();
-            string _display = clicked_.Id.ToString();
-            if (clicked == null)
-            {
-                return;
-            }
-            var display_text = FindViewById<TextView>(Resource.Id.textView1);
-            display_text.Text = _display;
-        }
-
-
+        
     }
 }
 
