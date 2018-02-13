@@ -44,6 +44,16 @@ namespace App2
 		public partial class Id
 		{
 			
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD:projects/project 2/source/App2/App2/Resources/Resource.Designer.cs
+			// aapt resource value: 0x7f040009
+			public const int bluescale = 2130968585;
+			
+>>>>>>> remotes/origin/2018-Spring
+>>>>>>> 8a6a2bd5414fb156195149f9964f60cdd5248e43
 			// aapt resource value: 0x7f040007
 			public const int greyscale = 2130968583;
 			
@@ -74,6 +84,20 @@ namespace App2
 			// aapt resource value: 0x7f04000a
 			public const int removered = 2130968586;
 			
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+=======
+			// aapt resource value: 0x7f040003
+			public const int gridLayout1 = 2130968579;
+			
+			// aapt resource value: 0x7f040000
+			public const int launchCameraButton = 2130968576;
+			
+>>>>>>> 35b839bc0ede35b62b58fbfb4505d7bc49c336ed:projects/project 2/source/App2/App2/Resources/Resource.Designer.cs
+>>>>>>> remotes/origin/2018-Spring
+>>>>>>> 8a6a2bd5414fb156195149f9964f60cdd5248e43
 			// aapt resource value: 0x7f040001
 			public const int takenPictureImageView = 2130968577;
 			
