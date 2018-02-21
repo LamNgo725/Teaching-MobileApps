@@ -286,3 +286,4 @@ __pycache__/
 *.btm.cs
 *.odx.cs
 *.xsd.cs
+/projects/project 3/source/App2/App2/Assets/google_api.json
