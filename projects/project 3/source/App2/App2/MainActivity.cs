@@ -50,7 +50,7 @@ namespace App2
         // </summary>
         // <param name = "requestCode" ></ param >
         // < param name="resultCode"></param>
-        /// <param name="data"></param>
+        // <param name="data"></param>
         protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
         {
             base.OnActivityResult(requestCode, resultCode, data);
@@ -111,14 +111,20 @@ namespace App2
             //send request.  Note that I'm calling execute() here, but you might want to use
             //ExecuteAsync instead
             var apiResult = client.Images.Annotate(batch).Execute();
+            // Here we're taking all the text box and displaying the api results on the screen
+            var display_text1 = FindViewById<TextView>(Resource.Id.api_response_1);
+            var display_text2 = FindViewById<TextView>(Resource.Id.api_response_2);
+            var display_text3 = FindViewById<TextView>(Resource.Id.api_response_3);
 
+            display_text1.Text = apiResult.Responses[0].LabelAnnotations[0].Description;
+            display_text2.Text = apiResult.Responses[0].LabelAnnotations[1].Description;
+            display_text3.Text = apiResult.Responses[0].LabelAnnotations[2].Description;
             if (bitmap != null)
             {
                 imageView.SetImageBitmap(bitmap);
                 imageView.Visibility = Android.Views.ViewStates.Visible;
                 bitmap = null;
             }
-
             // Dispose of the Java side bitmap.
             System.GC.Collect();
         }

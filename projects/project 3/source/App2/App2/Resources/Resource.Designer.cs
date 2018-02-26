@@ -41,6 +41,34 @@ namespace App2
 			}
 		}
 		
+		public partial class Id
+		{
+			
+			// aapt resource value: 0x7f040002
+			public const int api_response_1 = 2130968578;
+			
+			// aapt resource value: 0x7f040003
+			public const int api_response_2 = 2130968579;
+			
+			// aapt resource value: 0x7f040004
+			public const int api_response_3 = 2130968580;
+			
+			// aapt resource value: 0x7f040000
+			public const int launchCameraButton = 2130968576;
+			
+			// aapt resource value: 0x7f040001
+			public const int takenPictureImageView = 2130968577;
+			
+			static Id()
+			{
+				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
+			}
+			
+			private Id()
+			{
+			}
+		}
+		
 		public partial class Layout
 		{
 			
