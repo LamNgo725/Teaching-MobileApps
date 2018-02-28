@@ -3,21 +3,40 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <ContentPage xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-        xmlns:skia="clr-namespace:SkiaSharp.Views.Forms;assembly=SkiaSharp.Views.Forms"
-        xmlns:tt="clr-namespace:TouchTracking"
-        x:Class="SkiaSharpFormsDemos.Paths.FingerPaintPage"
-        Title="Finger Paint">
-        <Grid
-            BackgroundColor="White">
-            <SKCanvasView
-                x:Name="canvasView"
-                PaintSurface="OnCanvasViewPaintSurface" />
-            <Grid.Effects>
-                <TouchEffect
-                    Capture="True"
-                    TouchAction="OnTouchEffectAction" />
-            </Grid.Effects>
-        </Grid>
-    </ContentPage>
+    <Button
+        android:id="@+id/launchCameraButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Open Camera" />
+    <ImageView
+        android:visibility="invisible"
+        android:layout_width="fill_parent"
+        android:layout_height="300.0dp"
+        android:id="@+id/takenPictureImageView"
+        android:adjustViewBounds="true" />
+    <TextView
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/api_response_1" />
+    <TextView
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/api_response_3" />
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="66.0dp"
+        android:columnCount="2"
+        android:id="@+id/gridLayout1"
+        android:layout_gravity="center">
+        <Button
+            android:text="Yes"
+            android:id="@+id/yes"
+            android:visibility="invisible"/>
+        <Button
+            android:text="No"
+            android:id="@+id/no"
+            android:visibility="invisible" />
+    </GridLayout>
 </LinearLayout>
