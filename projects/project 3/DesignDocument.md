@@ -3,7 +3,7 @@ Complete description and overview.
 This is where you describe in a brief, yet clear and concise, manner what your product should do and how you expect it should be used.  
 Why did you write this application?  What purpose does it serve?  It's okay if the only purpose is to meet the homework requirement (but try to move bedyond just that - be creative!).
 
-My Prodect should be able to take a picture and using the google api to guess what the picture is. At first my original choice for the application was to make a drawing and have the
+My Product should be able to take a picture and using the google api to guess what the picture is. At first my original choice for the application was to make a drawing and have the
 google api guess what the drawing. However after countless hours I could not for the life of me get the drawing part to work nor the api. At the last min I suck in my pride and just 
 chose to go with what everyone else was doing which was the taking a picture and having the api guess the picture. The purpose of the app is to recognize images the user takes.
 
