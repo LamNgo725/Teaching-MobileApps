@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "moonlit-poetry-195221",
+  "private_key_id": "ad393302e5d21a6fe4073fac55d55ad3bbccf5b7",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDcArkVzgWIUPQ4\n9ZFoByfsWH/5AiettjDz0ozOSK4NPN93NWBw6tlKNkuCUfkNYSagK4FGdUCT/yMT\nzEBzzstXpDX9B6fjP3m8dzWCNMchzPmYAmPtEW1IU6tTOR6HsDXif3FRvCHOYi00\nNLqLeAjAPAl/UcYJAB5zJOjEhaq6SttA0Ga28zQ8u/TQFEB4q5T3PhCSP7bv6tUF\nF3VlIYv2wkUB75lVbOtR5fTbPnqz6J5zMBItX35FlvhtT4rakkaXqL6xwQ/59eWd\ng1TV/jTs22uNdae2ghgAuJknYV8xqdhrwAVVWUTe724OKeKgVIQnWNisvRiVaiFK\nWJrmnipTAgMBAAECggEAJAeMIO6CyG6deCB7BgK5/oIFvxUjw1ZlUOCnr3aGjmNs\nIx0KJKPJHtaiaf6bnx3MUgmd25iDEVmEeI8H9Q8mDL23G69fxp7UBFGvYRncjIQB\nUev+SkoC0AfntDLT9ZudT3DYcW6ySJaaWYTTEdj/8d9DHOca28l5sxiVx+0t5uDi\nmUnQfsmi0/Vz7kvUXEu0SxgXaHCXBVm7vzXJyoFemWxkR5dSOqxSveZKaVDE4sCi\nbIYYnhZI0uZ2QdoPVSQnubkXk6fVnalMkW7sv3SLPndHNDrlhsCBhxgzrMLoHgUu\nP5Z0LUhbc9juM2oXcJAy/xU3y3yTsZ+yEE/hiIXUCQKBgQD28AbOpYUN+H87wlIt\nQcszVw358iWD3sWxjzpSxM5IBWiqH+k3c3y0U4jsZ/lxfo8Ftd4m8anlHvWMDwaQ\nuUMy8cCbIFg3VUIy/hRn4qtizLCojM7kWT9vRsyrlmGcF2XGhfeo2icy4NsYLdTQ\n1qEmemYxzX+eDBhgq/V0IylRaQKBgQDkFbfXPWA6hvh4g5vGkod96HPdszJQyflm\n8PeZkraiM7Vr5LGsaSWHHykDvJ/l+jHRYtiNc59kt9PbNGdoqLu9xN8/IstdHCKG\nNA9nHYk2WtUaMjoemP+4tImNfP8e+SzLjKDIfjA0Q5nl4RavnjnDVFRkPAG2EXMn\nXUhPDZsqWwKBgQCvjfVI9GOjiwbpdTz278+GsF0/VOdW2QmzMiBEt6XvjejbCdTD\nl1cQ3FJ7v2+XQGJtrN5C0Yv3WAs5h3UjbpJXpYdIwbX1oKdvmTLoqD0wAFWXfoOX\n09tFQRBA7Kh4UCoK+TMY1/8GLNWWWv7xeaUXtezxeyc/NVofYCEgb97wAQKBgGaq\n0AH3AqXVs2qr8ybDNnIafG1DCFcNU1JfDVT3kXYZyIQ0gTWWbuoPwKqJ8X/Xyyzx\nTYD+lrUDej2lrRaTPU8Cm2sUAm57B59ZN8W2qdjpshsEmNzFCfbebTxfE4ehqeRF\n/OnCw3gDJfcwBsIuetnNz97+k9acrDT/7FiJS1sZAoGAX9Y8yeR5n32OqGz5gLDJ\nB2QiKOVPwKlCDlu5jU8XSeqR0WlmcsohuwuOl8S71Z8idmYYrx0G4+UhdC4YVzx8\nWqws48e4BlXg+qUo6AMoGy8H8RDUkp7ktiLpCjingHjxOz9iCNtYFX7E2rSJwco7\nHINtT2+59gxtIDVdtu0IQ90=\n-----END PRIVATE KEY-----\n",
+  "client_email": "lam-ngo@moonlit-poetry-195221.iam.gserviceaccount.com",
+  "client_id": "108361209279834951987",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://accounts.google.com/o/oauth2/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/lam-ngo%40moonlit-poetry-195221.iam.gserviceaccount.com"
+}

@@ -5,6 +5,7 @@ using Android.Content;
 using System.Collections.Generic;
 using Android.Content.PM;
 using Android.Provider;
+using Java.IO;
 
 namespace App2
 {
@@ -59,6 +60,8 @@ namespace App2
             // Loading the full sized image will consume too much memory
             // and cause the application to crash.
             ImageView imageView = FindViewById<ImageView>(Resource.Id.takenPictureImageView);
+            Button pressYes = FindViewById<Button>(Resource.Id.yes);
+            Button pressNo = FindViewById<Button>(Resource.Id.no);
             int height = Resources.DisplayMetrics.HeightPixels;
             int width = imageView.Height;
 
@@ -113,18 +116,36 @@ namespace App2
             var apiResult = client.Images.Annotate(batch).Execute();
             // Here we're taking all the text box and displaying the api results on the screen
             var display_text1 = FindViewById<TextView>(Resource.Id.api_response_1);
-            var display_text2 = FindViewById<TextView>(Resource.Id.api_response_2);
             var display_text3 = FindViewById<TextView>(Resource.Id.api_response_3);
 
             display_text1.Text = apiResult.Responses[0].LabelAnnotations[0].Description;
-            display_text2.Text = apiResult.Responses[0].LabelAnnotations[1].Description;
-            display_text3.Text = apiResult.Responses[0].LabelAnnotations[2].Description;
+            display_text3.Text = "Is this your picture";
+            
+            //Buttons will be visible from here 
             if (bitmap != null)
             {
-                imageView.SetImageBitmap(bitmap);
                 imageView.Visibility = Android.Views.ViewStates.Visible;
+                pressYes.Visibility = Android.Views.ViewStates.Visible;
+                pressNo.Visibility = Android.Views.ViewStates.Visible;
+                imageView.SetImageBitmap(bitmap);
                 bitmap = null;
             }
+             // whatever the user click displays a different message while making the buttons invisible again
+            pressYes.Click += delegate
+            {
+                display_text3.Text = "We did it";
+                pressYes.Visibility = Android.Views.ViewStates.Invisible;
+                pressNo.Visibility = Android.Views.ViewStates.Invisible;
+            };
+
+            pressNo.Click += delegate
+            {
+                display_text3.Text = "Damn......Next time";
+                pressYes.Visibility = Android.Views.ViewStates.Invisible;
+                pressNo.Visibility = Android.Views.ViewStates.Invisible;
+            };
+
+
             // Dispose of the Java side bitmap.
             System.GC.Collect();
         }

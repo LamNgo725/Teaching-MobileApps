@@ -23,10 +23,20 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/api_response_2" />
-    <TextView
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:id="@+id/api_response_3" />
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="66.0dp"
+        android:columnCount="2"
+        android:id="@+id/gridLayout1"
+        android:layout_gravity="center">
+        <Button
+            android:text="Yes"
+            android:id="@+id/yes"
+            android:visibility="invisible"/>
+        <Button
+            android:text="No"
+            android:id="@+id/no"
+            android:visibility="invisible" />
+    </GridLayout>
 </LinearLayout>
